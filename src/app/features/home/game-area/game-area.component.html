@@ -1,0 +1,41 @@
+<div class="game-container m-auto" *ngIf="!gameOver && !gameWin">
+  <p class="text-center text-uppercase m-0 bg-green">Finish</p>
+  <div class="game-row" *ngFor="let row of rows; trackBy: index; index as rowIndex">
+    <app-path-item *ngFor="let col of cols; trackBy: index; index as colIndex" [rowNumber]="rowIndex" 
+      [colNumber]="colIndex" [isBridge]="getPathClass(colIndex, rowIndex)" [isActive]="getActiveClass(colIndex, rowIndex)">
+    </app-path-item>
+  </div>
+  <p class="text-center text-uppercase bg-green">Start</p>
+</div>
+
+<div class="alert alert-danger my-3 text-center" *ngIf="gameOver">Game over! <br />
+  <button class="btn btn-outline-dark my-3" type="button" (click)="newGame()">Try again</button>
+</div>
+<div class="alert alert-success my-3 text-center" *ngIf="gameWin">You are the winner! <br />
+  <button class="btn btn-outline-dark my-3" type="button" (click)="newGame()">Try again</button>
+</div>
+
+<div class="game-control mt-3" [hidden]="gameOver || gameWin">
+  <div class="keyboard-panel text-center row">
+    <div class="col-sm-12">
+      <button type="button" class="btn btn-outline-dark" 
+        [ngClass]="{ 'active' : pressedButton === 'ArrowUp'}" (click) = "movePoint('ArrowUp')">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="col-sm-12 mt-1">
+      <button type="button" class="btn btn-outline-dark" 
+        [ngClass]="{ 'active' : pressedButton === 'ArrowLeft'}" (click) = "movePoint('ArrowLeft')">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      </button>
+      <button type="button" class="btn btn-outline-dark" 
+        [ngClass]="{ 'active' : pressedButton === 'ArrowDown'}" (click) = "movePoint('ArrowDown')">
+        <i class="fa fa-arrow-down" aria-hidden="true"></i>
+      </button>
+      <button type="button" class="btn btn-outline-dark" 
+        [ngClass]="{ 'active' : pressedButton === 'ArrowRight'}" (click) = "movePoint('ArrowRight')">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</div>

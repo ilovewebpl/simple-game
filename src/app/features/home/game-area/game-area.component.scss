@@ -1,0 +1,15 @@
+@import '../../../../scss/variables';
+    
+.game-container {
+    width: $sizeOfElement * 10;
+    clear: both;
+    .game-row {
+        width: 100%;
+        height: $sizeOfElement;
+        background: rgb(37, 171, 220);
+    }
+    .bg-green {
+        background-color: darkgreen;
+        color: white;
+    }
+}

@@ -1,0 +1,21 @@
+@import '../../../../../scss/variables';
+.game-path {
+    border: 1px solid #46bde8;
+    width: $sizeOfElement;
+    height: $sizeOfElement;
+    float: left;
+    &.bridge {
+        background: brown;
+    }
+    &.active {
+        &:after {
+            content: '';
+            width: $sizeOfElement;
+            height: $sizeOfElement;
+            border-radius: 50%;
+            background: white;
+            z-index: 9;
+            position: absolute;
+        }
+    }
+}

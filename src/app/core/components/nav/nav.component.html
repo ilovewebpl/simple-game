@@ -1,0 +1,22 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container">
+    <span class="navbar-brand mb-0 h1">Fancy game <small>{{ version }} {{ environmentName }}</small></span>
+    
+    <button (click)="toggleCollapse()" class="navbar-toggler" type="button" data-toggle="collapse" 
+    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" 
+    aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" [class.show]="show" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" routerLink="home" routerLinkActive="is-active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="rules" routerLinkActive="is-active">Rules</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
